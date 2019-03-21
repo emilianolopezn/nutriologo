@@ -162,8 +162,8 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Lista</a></li>
-            <li><a href="#">Agregar</a></li>
+            <li><a href="{{route('pacientes.index')}}">Lista</a></li>
+            <li><a href="{{route('pacientes.create')}}">Agregar</a></li>
           </ul>
         </li>
       </ul>

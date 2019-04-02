@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paciente;
+use App\User;
 
 class PacienteController extends Controller
 {
@@ -39,7 +40,36 @@ class PacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nuevoPaciente =
+            new Paciente();
+        $nuevoPaciente->nombre =
+            $request->input('nombre');
+        $nuevoPaciente->apellidos =
+            $request->input('apellidos');
+        $nuevoPaciente->nacimiento =
+            $request->input('nacimiento');
+        if($nuevoPaciente->save()) {
+            $nuevoUsuario = new User();
+            $nuevoUsuario->name = 
+                $request->input('nombre');
+            $nuevoUsuario->email =
+                $request->input('email');
+            $nuevoUsuario->password =
+                bcrypt($request->input('password'));
+            $nuevoUsuario->id_tipo_usuario =
+                2;
+            $nuevoUsuario->id_paciente = 
+                $nuevoPaciente->id;
+            if ($nuevoUsuario->save()) {
+                return redirect()->
+                    route('pacientes.index')->
+                    with('exito','Paciente agregado');
+            }
+        } 
+        return redirect()->
+            route('pacientes.index')->
+            with('error','No se pudo agregar paciente');
+
     }
 
     /**

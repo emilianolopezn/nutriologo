@@ -10,7 +10,8 @@
                 <h3 class="box-title">Agregar paciente</h3>
             </div>
             <div class="box-body">
-                <form>
+                <form method="POST" action="{{route('pacientes.store')}}">
+                    @csrf
                     <div class="form-group">
                         <label>Nombre</label>
                         <input class="form-control" type="text" name="nombre">

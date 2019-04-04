@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 02, 2019 at 01:49 AM
+-- Generation Time: Apr 04, 2019 at 07:37 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.8
 
@@ -26,7 +26,9 @@ CREATE TABLE `comidas_dieta` (
   `id_dia_semana` int(11) NOT NULL,
   `id_tiempo_alimentacion` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
-  `descripcion` text NOT NULL
+  `descripcion` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -62,7 +64,9 @@ INSERT INTO `dias_semana` (`id`, `nombre`) VALUES
 CREATE TABLE `dietas` (
   `id` int(11) NOT NULL,
   `id_paciente` int(11) NOT NULL,
-  `inicio_semana` date NOT NULL
+  `inicio_semana` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -105,7 +109,8 @@ CREATE TABLE `pacientes` (
 --
 
 INSERT INTO `pacientes` (`id`, `nombre`, `apellidos`, `nacimiento`, `created_at`, `updated_at`) VALUES
-(4, 'Maria', 'Garcia', '1988-04-08 00:00:00', '2019-04-02 08:09:24', '2019-04-02 08:09:24');
+(4, 'Maria', 'Garcia', '1988-04-08 00:00:00', '2019-04-02 08:09:24', '2019-04-02 08:09:24'),
+(5, 'Jose', 'Gutierrez', '2019-04-04 00:00:00', '2019-04-05 02:22:41', '2019-04-05 02:22:41');
 
 -- --------------------------------------------------------
 
@@ -184,7 +189,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `foto`, `id_tipo_usuario`, `id_paciente`) VALUES
 (1, 'Emiliano', 'emiliano@correo.com', NULL, '$2y$10$0PsNHxCUW3Y6fPgdqTaY3OEYon3kXFUiZoB/bgJbp79jQbkg1u9nm', '6OFIHHWHF0SVUEMgcDTGbchbDOyjUGZm2uu5fAKxz0NDfIqsNTdaytw40ZfN', '2019-02-22 02:04:17', '2019-03-12 06:58:35', 'p11552348715images.jpeg', 1, NULL),
-(4, 'Maria', 'maria@correo.com', NULL, '$2y$10$wNoB9nOvtkakEo//JXRtc.91BMjT0Bmk4LW3BDqj2I0A85cYSr50q', NULL, '2019-04-02 08:09:24', '2019-04-02 08:09:24', NULL, 2, 4);
+(4, 'Maria', 'maria@correo.com', NULL, '$2y$10$wNoB9nOvtkakEo//JXRtc.91BMjT0Bmk4LW3BDqj2I0A85cYSr50q', NULL, '2019-04-02 08:09:24', '2019-04-02 08:09:24', NULL, 2, 4),
+(5, 'Jose', 'jose@correo.com', NULL, '$2y$10$I40SW/cIKdLvhh.neiATXuPuh2qnjWIlSouULjspp0nMuo4mlqz86', NULL, '2019-04-05 02:22:41', '2019-04-05 02:22:41', NULL, 2, 5);
 
 --
 -- Indexes for dumped tables
@@ -283,7 +289,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pacientes`
 --
 ALTER TABLE `pacientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tiempos_alimentacion`
@@ -301,7 +307,7 @@ ALTER TABLE `tipos_usuario`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

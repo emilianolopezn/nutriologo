@@ -4,6 +4,7 @@
 @section('subtitulo','Asignar dieta')
 @section('contenido')
 <form method="POST" action="{{route('dietas.store')}}">
+@csrf
 <div class="row">
     <div class="col-md-12">
         <div class="box">

@@ -16,5 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-//localhost:8000/api/estados/1
+//api
+Route::get('/dieta/{fecha}/{paciente}','DietaApiController@dieta')
+    ->name('api.dietas.dieta');
 

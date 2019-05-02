@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Apr 04, 2019 at 07:37 PM
+-- Generation Time: May 02, 2019 at 07:44 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.8
 
@@ -30,6 +30,33 @@ CREATE TABLE `comidas_dieta` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comidas_dieta`
+--
+
+INSERT INTO `comidas_dieta` (`id`, `id_dieta`, `id_dia_semana`, `id_tiempo_alimentacion`, `titulo`, `descripcion`, `created_at`, `updated_at`) VALUES
+(3, 3, 1, 1, 'q', 'w', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(4, 3, 1, 2, 'r', 't', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(5, 3, 1, 3, 'y', 'u', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(6, 3, 2, 1, 'i', 'o', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(7, 3, 2, 2, 'p', 'a', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(8, 3, 2, 3, 's', 'd', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(9, 3, 3, 1, 'f', 'g', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(10, 3, 3, 2, 'h', 'j', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(11, 3, 3, 3, 'k', 'l', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(12, 3, 4, 1, 'z', 'x', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(13, 3, 4, 2, 'c', 'v', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(14, 3, 4, 3, 'b', 'n', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(15, 3, 5, 1, 'm', 'g', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(16, 3, 5, 2, 'f', 'd', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(17, 3, 5, 3, 'r', 'tg', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(18, 3, 6, 1, 'h', 'k', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(19, 3, 6, 2, 'b', 'v', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(20, 3, 6, 3, 'g', 'j', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(21, 3, 7, 1, 'j', 'vg', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(22, 3, 7, 2, 'h', 'k', '2019-04-30 08:38:39', '2019-04-30 08:38:39'),
+(23, 3, 7, 3, 'h', 'b', '2019-04-30 08:38:39', '2019-04-30 08:38:39');
 
 -- --------------------------------------------------------
 
@@ -68,6 +95,13 @@ CREATE TABLE `dietas` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `dietas`
+--
+
+INSERT INTO `dietas` (`id`, `id_paciente`, `inicio_semana`, `created_at`, `updated_at`) VALUES
+(3, 4, '2019-04-29', '2019-04-30 08:38:39', '2019-04-30 08:38:39');
 
 -- --------------------------------------------------------
 
@@ -265,7 +299,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comidas_dieta`
 --
 ALTER TABLE `comidas_dieta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `dias_semana`
@@ -277,7 +311,7 @@ ALTER TABLE `dias_semana`
 -- AUTO_INCREMENT for table `dietas`
 --
 ALTER TABLE `dietas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`

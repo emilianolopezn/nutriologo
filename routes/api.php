@@ -20,3 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/dieta/{fecha}/{paciente}','DietaApiController@dieta')
     ->name('api.dietas.dieta');
 
+Route::post('evidencia/{dieta}/{dia_semana}/{tiempo_alimentacion}',
+    'DietaApiController@nueva_evidencia')
+    ->name('api.dietas.evidencias.store');
+

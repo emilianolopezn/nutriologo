@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Paciente;
 use App\Dieta;
 use App\ComidaDieta;
+use Carbon;
 
 class DietaApiController extends Controller
 {
@@ -27,5 +28,19 @@ class DietaApiController extends Controller
                 $comidas;
         }
         return $dieta;
+    }
+
+    public function nueva_evidencia(Request $request, $dieta, $dia_semana, $tiempo_alimentacion) {
+        $comida = 
+            ComidaDieta::where('id_dieta',$dieta)
+                ->where('id_dia_semana',$dia_semana)
+                ->where('id_tiempo_alimentacion',$tiempo_alimentacion)
+                ->first();
+        if ($comida != NULL) {
+            $comida->evidencia = $request->input('evidencia');
+            $hoy = Carbon::now();
+            $comida->tiempo_evidencia = $hoy->toDateTimeString();
+        }
+
     }
 }
